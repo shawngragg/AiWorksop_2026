@@ -10,7 +10,7 @@ namespace RefView
         // or bounds that overflow or collapse in double precision.
         WindowLevelTransform(double center, double width);
 
-        // Returns [0, 255], rounding halfway values upward.
+        // Returns [0, 255], rounding halfway values away from zero.
         // Throws std::invalid_argument for a non-finite pixel.
         int Map(double pixel) const;
 

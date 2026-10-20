@@ -58,6 +58,21 @@ namespace AutoWindowProjectTests
             Assert::AreEqual(128, transform.Map(0.001));
         }
 
+        // D1E4 review counterexample: with center 0.5 and width 256, pixel p maps to exactly
+        // p + 127.5, so every integer pixel is a .5 tie that must round away from zero.
+        TEST_METHOD(EveryExactHalfRoundsAwayFromZero)
+        {
+            const WindowLevelTransform transform(0.5, 256.0);
+            for (int i = 0; i < 255; ++i)
+            {
+                const double pixel = i - 127.0;
+                const std::wstring message = L"Pixel " + std::to_wstring(pixel);
+                Assert::AreEqual(i + 1, transform.Map(pixel), message.c_str());
+                Assert::AreEqual(i, transform.Map(pixel - 0.001), message.c_str());
+                Assert::AreEqual(i + 1, transform.Map(pixel + 0.001), message.c_str());
+            }
+        }
+
         TEST_METHOD(WidthImmediatelyAboveOneIsValid)
         {
             const double width = std::nextafter(1.0, 2.0);

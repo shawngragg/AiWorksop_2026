@@ -70,8 +70,10 @@ pixel > upper: 255
 otherwise: ((pixel - (center - 0.5)) / (width - 1) + 0.5) * 255
 ```
 
-Interior results are rounded to the nearest integer with halfway values rounded
-upward, then clamped to [0, 255] before conversion to `int`.
+Interior results are calculated as `(pixel - lower) * 255 / (width - 1)`, which equals
+the formula above but keeps exact .5 results exact in floating point. They are rounded
+to the nearest integer with halfway values rounded away from zero (`std::round`), then
+clamped to [0, 255] before conversion to `int`.
 
 ### Assumptions and error policy
 
@@ -116,6 +118,7 @@ phantoms, and the Packet 3 challenging cases. See `TestImages\README.md`.
 | D1E1 — Use AI the way you normally do | Original challenge and acceptance criteria | Implemented |
 | D1E2 — Context changes everything | Exact formula, width > 1, explicit error, worked example | Implemented and tested |
 | D1E3 — Stop asking AI to do everything at once | Decompose; list prioritized questions before changing code | Questions resolved against the facilitator edition; no code change needed |
+| D1E4 — Make AI challenge its own work | Independent review with counterexamples | Rounding defect fixed and regression-tested; see D1E4 review record |
 
 The acceptance criteria are unchanged at every stage.
 
@@ -248,3 +251,12 @@ The current code depends on these team decisions. If a later clarification contr
 | Q10 | Not specified | Thread-safe by design | Optional: document it in the header |
 | Q11 | Clamp after calculation and rounding (Facilitator D1E3) | Matches current order | None |
 | Q12 | No inversion; low = black, high = white (Facilitator D1E3) | Matches current mapping | None |
+
+## D1E4 review record
+
+| Finding | Decision | Evidence |
+|---|---|---|
+| Exact .5 results sometimes rounded down (for example center 0.5, width 256, pixel -127: exact 0.5 → returned 0; 39 of 255 ties affected) | **Accepted, fixed.** Interior value now computed from the lower bound, multiplying before dividing (divide first only if the product could overflow). | `EveryExactHalfRoundsAwayFromZero` checks all 255 ties and neighbors ±0.001 |
+| Rounding test only covered the easily represented 127.5 midpoint | **Accepted, fixed.** | Same test |
+| Finite windows whose bounds collapse in `double` (for example center 1e16, width 2) are rejected | **Open question.** Kept as documented error policy pending clarification. | `RejectsOverflowingAndCollapsedBounds` |
+| `pixel > upper` should be `>=` | **Rejected.** D1E2 specifies `x > upper`; at `x == upper` the formula yields exactly 255, so the result is the same. | `ExactBoundariesAndAdjacentValues` |
