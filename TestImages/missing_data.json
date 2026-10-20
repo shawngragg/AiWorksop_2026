@@ -1,0 +1,30 @@
+{
+  "name": "missing_data",
+  "description": "Typical body with a rectangular block of missing (padding) pixels.",
+  "category": "challenging",
+  "file": "missing_data.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 524288,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 23744,
+  "hu_statistics_excluding_padding": {
+    "min": -1000,
+    "max": 734,
+    "p05_nearest_rank": -1000,
+    "p95_nearest_rank": 49
+  },
+  "preview": {
+    "file": "missing_data.png",
+    "window_center": 40,
+    "window_width": 400
+  },
+  "seed": 20261020,
+  "notes": "Padding block x=[150,362), y=[200,312); shown as a checkerboard in the preview."
+}

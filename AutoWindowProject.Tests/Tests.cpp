@@ -5,6 +5,7 @@
 #include <cmath>
 #include <limits>
 #include <stdexcept>
+#include <string>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using RefView::WindowLevelTransform;
@@ -21,7 +22,8 @@ namespace AutoWindowProjectTests
             const int expected[] = { 0, 0, 1, 129, 254, 255, 255 };
             for (int i = 0; i < 7; ++i)
             {
-                Assert::AreEqual(expected[i], transform.Map(pixels[i]));
+                const std::wstring message = L"Pixel " + std::to_wstring(pixels[i]);
+                Assert::AreEqual(expected[i], transform.Map(pixels[i]), message.c_str());
             }
         }
 

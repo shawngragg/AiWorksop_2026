@@ -1,0 +1,29 @@
+{
+  "name": "ramp",
+  "description": "Horizontal ramp from -1024 HU (left) to +3071 HU (right).",
+  "category": "normal",
+  "file": "ramp.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 524288,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 0,
+  "hu_statistics_excluding_padding": {
+    "min": -1024,
+    "max": 3071,
+    "p05_nearest_rank": -824,
+    "p95_nearest_rank": 2871
+  },
+  "preview": {
+    "file": "ramp.png",
+    "window_center": 1024,
+    "window_width": 4096
+  },
+  "seed": 20261020
+}

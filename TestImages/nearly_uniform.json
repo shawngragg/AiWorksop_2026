@@ -1,0 +1,29 @@
+{
+  "name": "nearly_uniform",
+  "description": "All pixels 40 HU with -1, 0 or +1 HU variation.",
+  "category": "challenging",
+  "file": "nearly_uniform.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 524288,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 0,
+  "hu_statistics_excluding_padding": {
+    "min": 39,
+    "max": 41,
+    "p05_nearest_rank": 39,
+    "p95_nearest_rank": 41
+  },
+  "preview": {
+    "file": "nearly_uniform.png",
+    "window_center": 40,
+    "window_width": 400
+  },
+  "seed": 20261020
+}

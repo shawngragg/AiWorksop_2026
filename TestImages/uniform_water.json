@@ -1,0 +1,30 @@
+{
+  "name": "uniform_water",
+  "description": "Water cylinder (0 HU, noise SD 12 HU, radius 240 px) in air.",
+  "category": "phantom",
+  "file": "uniform_water.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 524288,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 0,
+  "hu_statistics_excluding_padding": {
+    "min": -1000,
+    "max": 61,
+    "p05_nearest_rank": -1000,
+    "p95_nearest_rank": 18
+  },
+  "preview": {
+    "file": "uniform_water.png",
+    "window_center": 0,
+    "window_width": 100
+  },
+  "seed": 20261020,
+  "notes": "Measure mean and noise inside the central water region, away from the edge."
+}

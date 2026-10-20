@@ -1,0 +1,30 @@
+{
+  "name": "corrupted_truncated",
+  "description": "Typical body truncated mid-row; metadata declares 512 x 512.",
+  "category": "challenging",
+  "file": "corrupted_truncated.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 200001,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 0,
+  "hu_statistics_excluding_padding": {
+    "min": -1000,
+    "max": 731,
+    "p05_nearest_rank": -1000,
+    "p95_nearest_rank": 49
+  },
+  "preview": {
+    "file": null,
+    "window_center": 40,
+    "window_width": 400
+  },
+  "seed": 20261020,
+  "notes": "File is shorter than expected with an odd byte count; readers must reject it."
+}

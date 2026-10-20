@@ -1,0 +1,29 @@
+{
+  "name": "extreme_high",
+  "description": "Soft-tissue disc with a +3071 HU object (radius 20 px).",
+  "category": "challenging",
+  "file": "extreme_high.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 524288,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 0,
+  "hu_statistics_excluding_padding": {
+    "min": -1000,
+    "max": 3071,
+    "p05_nearest_rank": -1000,
+    "p95_nearest_rank": 53
+  },
+  "preview": {
+    "file": "extreme_high.png",
+    "window_center": 40,
+    "window_width": 400
+  },
+  "seed": 20261020
+}

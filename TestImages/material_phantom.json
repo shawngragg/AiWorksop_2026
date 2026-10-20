@@ -1,0 +1,30 @@
+{
+  "name": "material_phantom",
+  "description": "Water cylinder with noise-free inserts at 0, -100 and +100 HU.",
+  "category": "phantom",
+  "file": "material_phantom.raw",
+  "width": 512,
+  "height": 512,
+  "data_type": "uint16",
+  "byte_order": "little-endian",
+  "row_order": "top-to-bottom",
+  "expected_file_bytes": 524288,
+  "actual_file_bytes": 524288,
+  "rescale_slope": 1,
+  "rescale_intercept": -1024,
+  "pixel_padding_value": 65535,
+  "padding_pixel_count": 0,
+  "hu_statistics_excluding_padding": {
+    "min": -1000,
+    "max": 100,
+    "p05_nearest_rank": -1000,
+    "p95_nearest_rank": 0
+  },
+  "preview": {
+    "file": "material_phantom.png",
+    "window_center": 0,
+    "window_width": 400
+  },
+  "seed": 20261020,
+  "notes": "Inserts (radius 40 px): top 0 HU, lower-left -100 HU, lower-right +100 HU."
+}
