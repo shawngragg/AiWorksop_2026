@@ -42,5 +42,8 @@
   <ItemGroup>
     <ClCompile Include="Library.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WindowLevelTransform.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
